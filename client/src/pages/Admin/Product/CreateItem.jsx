@@ -6,28 +6,40 @@ import axios from 'axios';
 
 
 const CreateItem = () => {
-    const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [subCategories, setSubCategories] = useState([]);
   const [brands, setBrands] = useState([]);
+  const [disabled, setDisabled] = useState(true);
+  const [selectedOption, setSelectedOption] = useState('');
   const [item, setItem] = useState({
     name: '',
     description: '',
     price: '',
-    image: null,
+    image: null, // Change to null
     shipping: false,
     categoryId: '',
+    subCategoryId: '',
     brandId: '',
   });
 
   useEffect(() => {
     async function getCategories() {
-      await axios.get('http://localhost:5000/api/category/all-categories').then((data) => setCategories(data.data));
+      const response = await axios.get('http://localhost:5000/api/category/all-categories');
+      setCategories(response.data.categories);
+      setSubCategories(response.data.sub_categories);
     }
+
     async function getBrands() {
-      await axios.get('http://localhost:5000/api/brand/all-brands').then((data) => setBrands(data.data));
+      const response = await axios.get('http://localhost:5000/api/brand/all-brands');
+      setBrands(response.data);
     }
+
     getCategories();
     getBrands();
-  }, []); 
+  }, []);
+
+
+  const filtered = subCategories.filter(x => x.categoryId == selectedOption)
 
   const handleImageChange = (e) => {
     const imageFile = e.target.files[0];
@@ -36,21 +48,36 @@ const CreateItem = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(item);
     try {
-      console.log(item);
-      await axios.post('http://localhost:5000/api/product/add', item);
+      const formData = new FormData();
+      formData.append('image', item.image); // Use the image file directly
+      formData.append('name', item.name);
+      formData.append('price', item.price);
+      formData.append('description', item.description);
+      formData.append('categoryId', item.categoryId);
+      formData.append('subCategoryId', item.subCategoryId);
+      formData.append('brandId', item.brandId);
+      formData.append('shipping', item.shipping);
+
+      console.log(formData);
+
+      await axios.post('http://localhost:5000/api/product/add', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // Set the content type to multipart/form-data
+        },
+      });
+
       alert('Məhsul əlavə edildi');
     } catch (error) {
       console.error('Xəta:', error);
     }
   };
-
   return (
     <div className="container">
         <h3 style={{fontFamily: "Regular", padding: "20px 0"}}>Yeni məhsul</h3>
         <div className='col-lg-6 mx-auto'>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} encType="multipart/form-data" >
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Məhsulun adı</Form.Label>
                 <Form.Control type="text" onChange={(e) => setItem({ ...item, name: e.target.value })} defaultValue={item.name}/>
@@ -67,7 +94,11 @@ const CreateItem = () => {
                 <Form.Label>Şəkli</Form.Label>
                 <Form.Control onChange={handleImageChange} type="file" />
             </Form.Group>
-            <Form.Select name="categoryID" className='mb-4' aria-label="Default select example" onChange={(e) => setItem({ ...item, categoryId: e.target.value })} value={item.categoryId}>
+            <Form.Select value={item.categoryId} name="categoryID" className='mb-4' aria-label="Default select example" onChange={(e) => {
+              setItem({ ...item, categoryId: e.target.value })
+              setSelectedOption(e.target.value)
+              setDisabled(false)
+            }}>
                 <option>Kateqoriya</option>
                 {
                     categories && categories.map(item => {
@@ -75,6 +106,16 @@ const CreateItem = () => {
                            <option key={item._id} value={item._id}>{item.name}</option>
                         )
                     })
+                }
+                </Form.Select>
+               <Form.Select disabled={disabled} name="subCategoryId" className='mb-4' aria-label="Default select example" onChange={(e) => setItem({ ...item, subCategoryId: e.target.value })} value={item.subCategoryId}>
+                <option>Alt Kateqoriya</option>
+                {
+                  filtered.length > 0 && filtered.map(item => {
+                    return(
+                      <option key={item._id} value={item._id}>{item.name}</option>
+                    )
+                  })
                 }
                 </Form.Select>
             <Form.Select onChange={(e) => setItem({ ...item, brandId: e.target.value })} value={item.brandId} name="categoryID" className='mb-4' aria-label="Default select example">

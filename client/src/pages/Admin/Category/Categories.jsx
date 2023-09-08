@@ -5,6 +5,7 @@ import { BsTrash3 } from 'react-icons/bs'
 import { AiOutlineEdit } from 'react-icons/ai'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom'
 
 
 const Categories = () => {
@@ -13,7 +14,7 @@ const Categories = () => {
     useEffect(() => {
       const getItems = async () => {
         await axios.get(`http://localhost:5000/api/category/all-categories`)
-        .then(res => setData(res.data))
+        .then(res => setData(res.data.categories))
         .catch(err => console.log(err))
       }
   
@@ -56,6 +57,7 @@ const Categories = () => {
                             <tr key={item._id}>
                                 <td>{item.name}</td>   
                                 <td>
+                                    <Link className='btn btn-success text-white' to={`/admin/category/${item._id}`}>Yeni Alt kateqoriya</Link>
                                     <button onClick={() => DeleteHandler(item._id)} className='btn btn-danger ms-1'><BsTrash3 /></button>
                                 </td>   
                             </tr>

@@ -63,11 +63,12 @@ const Products = () => {
             <tbody>
                 {
                     data && data.map(item => {
+                        console.log(item);
                         return(
                             <tr style={{verticalAlign: "baseline"}} key={item._id}>
                                             <td style={{width: "30%"}}>{item._id}</td>
                                             <td style={{width:"30%"}}>
-                                                <img style={{width:"30%"}} src={item.image} alt="" />
+                                                <img style={{width:"30%"}} src={`http://localhost:5000/uploads/${item.image}`} alt="" />
                                             </td>
                                             <td style={{width: "30%"}}>{item.name}</td>
                                             <td style={{width: "10%"}}>{item.price} AZN</td>

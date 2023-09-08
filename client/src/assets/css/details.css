@@ -98,3 +98,26 @@
     font-size: 22px;
     margin-bottom: 25px;
 }
+
+.view-count {
+    font-family: Regular;
+    color: #333;
+    font-size: 14px;
+}
+
+.item-photo {
+    position: relative;
+}
+
+
+.item-photo span{
+    position: absolute;
+    font-size: 14px;
+    background: orange;
+    color: #fff;
+    padding: 0px 4px;
+    font-family: 'Regular';
+    border-radius: 3px;
+    top: 25px;
+    left: 25px;
+}

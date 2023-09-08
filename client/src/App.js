@@ -20,6 +20,8 @@ import CreateBrand from './pages/Admin/Brand/CreateBrand';
 import Brands from './pages/Admin/Brand/Brands';
 import Orders from './pages/Admin/Order/Orders';
 import ProductDetails from './pages/Admin/Product/ProductDetails';
+import Subcategory from './pages/Admin/SubCategory/Subcategory';
+import CreateSub from './pages/Admin/SubCategory/CreateSub';
 
 if(localStorage.getItem('cart') === null) {
   localStorage.setItem('cart', JSON.stringify([]))
@@ -30,6 +32,8 @@ function App() {
 
   return (
     <div className="App">
+
+
            <BrowserRouter>
           {
             
@@ -37,10 +41,12 @@ function App() {
                 <Routes>
                   <Route path='/admin' element={<AdminIndex />}/>
                   <Route path='/admin/all-products' element={<Products />}/>
+                  <Route path='/admin/category/create' element={<CreateCategory />}/>
                   <Route path='/admin/all-categories' element={<Categories />}/>
+                  <Route path='/admin/category/:id' element={<CreateSub />}/>
+                  <Route path='/admin/all-subcategories' element={<Subcategory />}/>
                   <Route path='/admin/product/create' element={<CreateItem />}/>
                   <Route path='/admin/product/:id' element={<ProductDetails />}/>
-                  <Route path='/admin/category/create' element={<CreateCategory />}/>
                   <Route path='/admin/brand/create' element={<CreateBrand />}/>
                   <Route path='/admin/all-brands' element={<Brands />}/>
                   <Route path='/admin/all-orders' element={<Orders />}/>

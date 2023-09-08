@@ -10,14 +10,14 @@ const Footer = () => {
         <div className="footer-top">
           <div className="row gy-4">
             <div className="col-lg-3 f-logo">
-              <Link>Flamingo</Link>
+              <Link to='/'>Flamingo</Link>
               <p>Ən çox bol çeşid</p>
             </div>
             <div className="col-lg-3 f-box">
               <h5>Kateqoriyalar</h5>
               <Link>Qazan</Link>
-              <Link>Qazan</Link>
-              <Link>Qazan</Link>
+              <Link>Stəkan</Link>
+              <Link>Yuyucu vasitələr</Link>
             </div>
             <div className="col-lg-3 f-box">
 
@@ -32,8 +32,7 @@ const Footer = () => {
                 <h5>
                  <FormattedMessage id="Bizimlə əlaqə" defaultMessage="Bizimlə əlaqə" />
                 </h5>
-                <a href=""><AiOutlineInstagram /></a>
-                <a href=""><AiFillFacebook /></a>
+                <a target='_blank' href="https://www.instagram.com/_eviniz/"><AiOutlineInstagram /></a>
             </div>
           </div>
         </div>

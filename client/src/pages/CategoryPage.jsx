@@ -1,15 +1,18 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { HiOutlineShoppingCart } from 'react-icons/hi'
-import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import '../assets/css/category.css';
 import AlertBox from '../components/AlertBox'
+import ProductItem from '../components/Product/ProductItem'
+import Spinner from '../components/Spinner';
 
 const CategoryPage = () => {
   const { id } = useParams();
   const [data, setData] = useState([])
   const [brands, setBrands] = useState([])
+  const [subs, setSubs] = useState([])
+  const [filteredData, setFilteredData] = useState([]);
+
 
   useEffect(() => {
     const getItems = async () => {
@@ -17,10 +20,15 @@ const CategoryPage = () => {
       .then(res => {
         setData(res.data)
         const all_brands = [];
+        const all_subs = [];
         res.data.forEach((product) => {
           all_brands.push(product.brandId);
         });
+        res.data.forEach((product) => {
+          all_subs.push(product.subCategoryId);
+        });
         setBrands(all_brands);
+        setSubs(all_subs);
                 
       })
       .catch(err => console.log(err))
@@ -54,75 +62,117 @@ const CategoryPage = () => {
   }
 
   const BrandHandler = (e) => {
-      const filtered = data.filter(item => item.brandId._id === e.target.value);
-      setData(filtered)
+    // const brandId = e.target.value;
+    // if (!brandId) {
+    //     setFilteredData([]); 
+    // } else {
+    //     const filtered = data.filter(item => item.brandId._id === brandId);
+    //     setFilteredData(filtered);
+    // }
   }
+
+
+  const SubHandler = (e) => {
+    // const categoryId = e.target.value;
+    // if (!categoryId) {
+    //     setFilteredData([]); 
+    // } else {
+    //     const filtered = data.filter(item => item.categoryId === categoryId);
+    //     setFilteredData(filtered);
+    // }
+}
+
+const filterHandler = () => {
+  const selectedBrandId = document.getElementById('brandFilter').value;
+  const selectedSubCategoryId = document.getElementById('subCategoryFilter').value;
+
+  if (!selectedBrandId && !selectedSubCategoryId) {
+      setFilteredData([]);
+  } else {
+      const filtered = data.filter(item => {
+          const matchesBrand = !selectedBrandId || item.brandId._id === selectedBrandId;
+          const matchesSubCategory = !selectedSubCategoryId || item.subCategoryId._id === selectedSubCategoryId;
+          return matchesBrand && matchesSubCategory;
+      });
+      setFilteredData(filtered);
+  }
+}
 
   return (
     <>
       {
-        data ? <section id="Category">
-        <div className="container">
-          <div className="cat-top d-flex justify-content-between align-items-center">
-              <h3>{data.length} məhsul</h3>
-              <select onChange={OptionHandler}>
-                <option value="">Sırala</option>
-                <option value="1">A-Z</option>
-                <option value="2">Z-A</option>
-                <option value="3">Ucuzdan bahaya</option>
-                <option value="4">Bahadan ucuza</option>
-              </select>
-          </div>
-          <div className="row mt-4">
-            <div className="col-lg-3">
-              <div className="cat-filter-left">
-                  <div className="for-brand">
-                    <span>Brendə görə</span>
-                    <select onChange={BrandHandler}>
-                    <option value=''>------</option>
-                    {
-                        brands && brands.map(item => {
-                          return(
-                            <option value={item._id} key={item._id}>{item.name}</option>
-                          )
-                        })
-                      }
-                    </select>
-                    <ul>
-                      
-                    </ul>
-                  </div>
-              </div>
-            </div>
-            <div className="col-lg-9">
-            <div className="cat-filter">
-            <div className="row gy-4">
-              {
-                data.map(item => {
-                  return(
-                    <div key={item._id} className="col-lg-4">
-                          <Link to={`/details/${item._id}`}>
-                            <div className="item-box">
-                              <div className="item-image">
-                                <img className='img-fluid' src={item.image} alt="" />
-                              </div>
-                              <div className="item-content">
-                                <h5>{item.name}</h5>
-                                <p>{item.price} AZN</p>
-                                <button><HiOutlineShoppingCart /> Səbətə at</button>
-                              </div>
-                            </div>
-                          </Link>
-                      </div>
-                  )
-                })
-              }
-            </div>
-          </div>
-            </div>
-          </div>
-        </div>
-      </section> : 'is loading...'
+       data ?  <section id="Category">
+       <div className="container">
+         <div className="cat-top gy-4 d-flex justify-content-between align-items-center">
+             <h3>{data.length} məhsul</h3>
+             <select onChange={OptionHandler}>
+               <option value="">Sırala</option>
+               <option value="1">A-Z</option>
+               <option value="2">Z-A</option>
+               <option value="3">Ucuzdan bahaya</option>
+               <option value="4">Bahadan ucuza</option>
+             </select>
+         </div>
+         <div className="row mt-3 gy-4">
+           <div className="col-lg-3">
+             <div className="cat-filter-left">
+                 <div className="for-brand mb-4">
+                   <span>Alt kateqoriyalar</span>
+
+                     <select id='subCategoryFilter' onChange={SubHandler}>
+                       <option value=''>Hamısı</option>
+                       {
+                           subs && subs.map(item => {
+                             return(
+                               <option value={item._id} key={item._id}>{item.name}</option>
+                             )
+                           })
+                         }
+                     </select>
+                   </div>
+                 <div className="for-brand">
+                   <span>Brendə görə</span>
+                   <select id='brandFilter' onChange={BrandHandler}>
+                   <option value=''>Hamısı</option>
+                   {
+                       brands && brands.map(item => {
+                         return(
+                           <option value={item._id} key={item._id}>{item.name}</option>
+                         )
+                       })
+                     }
+                   </select>
+                 </div>
+                 <div className="filter-button">
+                   <button onClick={filterHandler}>Axtar</button>
+                 </div>
+             </div>
+           </div>
+           <div className="col-lg-9">
+           <div className="cat-filter">
+           <div className="row gy-4">
+             {
+               filteredData.length > 0 ? (
+                 filteredData.map(item => {
+                   return(
+                     <ProductItem item={item}/>
+                   )
+                 })
+               ) : (
+                 data.map(item => {
+                   return(
+                     <ProductItem col='col-lg-4' item={item}/>
+                   )
+                 })
+               )
+               
+             }
+           </div>
+         </div>
+           </div>
+         </div>
+       </div>
+     </section> : <Spinner />
       }
     </>
   )

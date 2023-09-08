@@ -19,6 +19,7 @@ const Login = () => {
       setToken(token); 
       localStorage.setItem('token', token); 
       navigate('/admin')
+      window.location.reload()
     } catch (error) {
       console.error('Giriş zamanı səhv baş verdi:', error);
     }

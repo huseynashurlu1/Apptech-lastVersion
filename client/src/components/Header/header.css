@@ -73,11 +73,15 @@ header .top p{
 }
 
 @media (max-width:576px) {
+    .logo {
+        text-align: center !important;
+    }
     .search {
         justify-content: center;
         margin: 10px 0;
     }
     .basket {
         text-align: center;
+        margin-top: 15px;
     }
 }

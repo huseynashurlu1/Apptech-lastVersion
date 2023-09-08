@@ -28,25 +28,6 @@ const CreateCategory = () => {
         }
     }
     
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault()
-    //     console.log(category);
-    //     try {
-    //         const response = await axios.post('http://localhost:5000/api/category/add', category)
-    //         toast.success('Kateqoriya əlavə olundu', {
-    //             position: "bottom-right",
-    //             autoClose: 2000,
-    //             closeOnClick: true,
-    //             pauseOnHover: true,
-    //             progress: undefined,
-    //             theme: "light",
-    //         });
-    //         setCategory({ name: '' }); 
-    //     } catch (error) {
-    //         throw new Error()
-    //     }
-    // }
-
   return (
     <div className="container">
         <h3 style={{fontFamily: "Regular", padding: "20px 0"}}>Yeni kateqoriya</h3>

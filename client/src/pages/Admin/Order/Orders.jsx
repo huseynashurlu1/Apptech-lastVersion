@@ -45,6 +45,7 @@ const Orders = () => {
                 <tr>
                 <th>Adı</th>
                 <th>Telefon</th>
+                <th>Məzmunu</th>
                 <th>Məhsul kodu</th>
                 <th></th>
                 </tr>
@@ -53,10 +54,11 @@ const Orders = () => {
                 {
                     data && data.map(item => {
                         return(
-                            <tr style={{verticalAlign: "baseline"}} key={item._id}>
+                            <tr style={{verticalAlign: "baseline", fontSize: "13px"}} key={item._id}>
                                             <td style={{width:"20%"}}>{item.name}</td>
-                                            <td style={{width: "20%"}}>{item.phone}</td>
-                                            <td style={{width: "40%"}}>{item.productId}</td>
+                                            <td style={{width: "10%"}}>{item.phone}</td>
+                                            <td style={{width: "30%"}}>{item.description}</td>
+                                            <td style={{width: "30%"}}>{item.productId}</td>
                                             <td className='d-flex justify-content-center'>
                                                 <button onClick={() => DeleteHandler(item._id)} className='btn btn-danger ms-1'><BsTrash3 /></button>
                                             </td>

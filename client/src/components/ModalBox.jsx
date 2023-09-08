@@ -11,11 +11,11 @@ const ModalBox = (props) => {
     const [order, setOrder] = useState({
         name: '',
         phone: '',
+        description: '',
         productId: id
     })
 
     const orderHandler = async () => {
-        console.log(order);
         try {
             await axios.post('http://localhost:5000/api/order/add', order)
             toast.success('Sifariş göndərildi', {
@@ -48,8 +48,13 @@ const ModalBox = (props) => {
                                 <label className='mb-2' htmlFor="username">Telefon nömrəsi</label>
                                 <input onChange={(e) => setOrder({ ...order, phone: e.target.value })} type="tel" className='form-control' />
                             </div>
+                            <div className='form-group mt-3'>
+                                <label className='mb-2' htmlFor="description">Sifarişin məzmunu</label>
+                                <input onChange={(e) => setOrder({ ...order, description: e.target.value })} type="textarea" className='form-control' />
+                            </div>
                             <button onClick={orderHandler} className='btn btn-success mt-3'>Sifarişi göndər</button>
                     </div>
+                    <ToastContainer />
                 </div>
             </div> : null
         }

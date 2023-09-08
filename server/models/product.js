@@ -39,6 +39,11 @@ var productSchema = new mongoose.Schema({
         ref: 'Category',
         required:true
     },
+    subCategoryId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Subcategory',
+        required:true
+    },
     brandId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Brand',

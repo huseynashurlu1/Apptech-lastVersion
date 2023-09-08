@@ -37,6 +37,15 @@ const AppSidebar = () => {
         </Accordion>
         <Accordion>
             <Accordion.Item eventKey="0">
+                <Accordion.Header><PiDotDuotone /> Alt Kateqoriyalar</Accordion.Header>
+                <Accordion.Body>
+                <Link to='/admin/category/subcategory/create'><GoDot /> Yeni kateqoriya</Link>
+                <Link to='/admin/all-subcategories'><GoDot /> Bütün kateqoriyalar</Link>
+                </Accordion.Body>
+            </Accordion.Item>
+        </Accordion>
+        <Accordion>
+            <Accordion.Item eventKey="0">
                 <Accordion.Header><PiDotDuotone /> Brendlər</Accordion.Header>
                 <Accordion.Body>
                 <Link to='/admin/brand/create'><GoDot /> Yeni Brend</Link>
