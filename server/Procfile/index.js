@@ -3,16 +3,16 @@ const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const PORT = 5000 || 4000;
-const categoryRoute = require('./routes/category')
-const productRoute = require('./routes/product')
-const brandRoute = require('./routes/brand')
-const orderRoute = require('./routes/order')
-const userRoute = require('./routes/user')
-const statRoute = require('./routes/statistics')
-const viewStats = require('./viewStats');
+const categoryRoute = require('../routes/category')
+const productRoute = require('../routes/product')
+const brandRoute = require('../routes/brand')
+const orderRoute = require('../routes/order')
+const userRoute = require('../routes/user')
+const statRoute = require('../routes/statistics')
+const viewStats = require('../viewStats');
 const multer = require('multer');
 
-const dbConnect = require('./config/connection');
+const dbConnect = require('../config/connection');
 dbConnect();
 
 app.use(cors())
