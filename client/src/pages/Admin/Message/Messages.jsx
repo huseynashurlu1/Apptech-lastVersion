@@ -9,7 +9,7 @@ const Messages = () => {
 
     useEffect(() => {
             const getMessages = async () => {
-                await axios.get('http://localhost:5000/api/contact/messages')
+                await axios.get('http://167.172.105.171:5000/api/contact/messages')
                 .then(res => setData(res.data))
                 .catch(err => console.log(err))
             }
@@ -18,7 +18,7 @@ const Messages = () => {
 
     const DeleteHandler = async (id) => {
         try {
-            const response = await axios.delete(`http://localhost:5000/api/contact/${id}`)
+            const response = await axios.delete(`http://167.172.105.171:5000/api/contact/${id}`)
             setData(prevData => prevData.filter(item => item._id !== id));
             toast.error('Mesaj silindi', {
                 position: "bottom-right",
