@@ -7,7 +7,7 @@ const Login = () => {
   const navigate = useNavigate()
   const [token, setToken] = useState('');
   const [data, setData] = useState({
-    username: '',
+    email: '',
     password: ''
   })
 
@@ -29,7 +29,7 @@ const Login = () => {
     <div className='login py-5'>
       <div className="col-lg-4 mx-auto">
         <label htmlFor="username">İstifadəçi adı</label>
-        <input onChange={(e) => setData({ ...data, username: e.target.value })} className='form-control mb-3' type="text" />
+        <input onChange={(e) => setData({ ...data, email: e.target.value })} className='form-control mb-3' type="email" />
         <label htmlFor="password">Şifrə</label>
         <input onChange={(e) => setData({ ...data, password: e.target.value })} className='form-control' type="password" />
         <button onClick={handleLogin} className='btn btn-success mt-4'>Daxil ol</button>

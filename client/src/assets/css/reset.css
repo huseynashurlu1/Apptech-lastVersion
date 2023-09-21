@@ -1,39 +1,60 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-a{
+  }
+  
+  a {
     text-decoration: none;
-}
+  }
+  a:hover {
+    color: inherit;
+  }
+  
+  @font-face {
+    font-family: NeueBold;
+    src: url(../fonts/NeueMachina-Ultrabold.otf);
+  }
+  
+  @font-face {
+    font-family: NeueSemi;
+    src: url(../fonts/PPNeueMachina-InktrapSemibold.ttf);
+  }
 
-input,select, button{ 
+  @font-face {
+    font-family: NeueRegular;
+    src: url(../fonts/NeueMachina-Regular.otf);
+  }
+
+  @font-face {
+    font-family: TTMedium;
+    src: url(../fonts/TTHoves-Medium.ttf);
+  }
+
+  @font-face {
+    font-family: TTRegular;
+    src: url(../fonts/TTHoves-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: NeueSemiBold;
+    src: url(../fonts/NeueMachina-Ultrabold.otf);
+  }
+
+  input, select, button, textarea {
     outline: none;
-}
+  }
+  
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
 
-h1,h2,h3,h4,h5,h6,p {
-    margin: 0;
-    padding: 0;
+  body::-webkit-scrollbar-thumb{
+    background-color: #C3E754;
 }
-
-ul{
+  
+  ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-@font-face {
-    font-family: Bold;
-    src: url(../fonts/Quicksand-Bold.ttf);
-}
-
-@font-face {
-    font-family: Regular;
-    src: url(../fonts/Quicksand-Regular.ttf);
-}
-
-@font-face {
-    font-family: Light;
-    src: url(../fonts/Quicksand-Bold.ttf);
-}
+    padding-left: 0;
+  }
+  

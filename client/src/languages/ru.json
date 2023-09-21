@@ -1,16 +1,16 @@
 {
-    
-    "Ölkənin ən bol çeşidli mağazası": "Самый разнообразный магазин в стране",
-    "Dil seçimi": "Язык",
-    "Ən çox baxılanlar": "Наиболее просматриваемые",
-    "Endirimli məhsullar": "Товары со скидкой",
-    "Səbətə at": "Добавить в корзину",
-    "Keçidlər": "Ссылки",
-    "Bizimlə əlaqə": "Контакт",
-    "Şəhər": "Город",
-    "Çatdırılma": "Доставка",
-    "Sifariş et": "Заказ",
-    "Səbətə at": "Добавить в корзину",
-    "Oxşar məhsullar": "Похожие продукты",
-    "Baxış sayı": "Взгляды"
-  }
+  "Homepage": "Главный",
+  "About us": "О нас",
+  "Services": "Услуги",
+  "Contact us": "Контакт",
+  "More efficient": "Более эффективным",
+  "Cost savings": "Экономия затрат",
+  "Client satisfaction": "Удовлетворение",
+  "Our IT services will  solve your problem": "Наши ИТ-услуги решат вашу проблему",
+  "Language": "Язык",
+  "Privacy Policy": "Политика конфиденциальности",
+  "Terms of use": "Условия эксплуатации",
+  "All rights reserved": "Все права защищены",
+  "Send to messages" : "Отправить сообщение",
+  "Send" : "Отправлять"
+}

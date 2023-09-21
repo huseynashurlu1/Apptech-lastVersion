@@ -4,16 +4,16 @@ import './Header/header.css'
 const SideNav = (props) => {
   return (
     <>
-        {
-            props.data ? <div className="sidenav">
-                <nav>
-                        <NavLink activeclassname='active' to='/'>Home</NavLink>
-                        <NavLink to='/about'>About</NavLink>
-                        <NavLink to='/works'>Works</NavLink>
-                        <NavLink to='/contact'>Contact</NavLink>
-                </nav>
-        </div> : null
-        }
+           {
+            props.type ? <div className="sidenav">
+            <nav>
+                    <a href="#">Home</a>
+                    <a href="#About">About</a>
+                    <a href="#Services">Services</a>
+                    <a href="#Contact">Contact</a>
+            </nav>
+    </div> : null
+           }
     </>
   )
 }

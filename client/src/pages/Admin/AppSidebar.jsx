@@ -19,45 +19,17 @@ const AppSidebar = () => {
         <Link className='main-page-link' to='/admin'><PiDotDuotone /> Ana Səhifə</Link>
         <Accordion>
             <Accordion.Item eventKey="0">
-                <Accordion.Header><PiDotDuotone /> Məhsullar</Accordion.Header>
+                <Accordion.Header><PiDotDuotone /> Göndərilənlər</Accordion.Header>
                 <Accordion.Body>
-                <Link to='/admin/product/create'><GoDot /> Yeni məhsul</Link>
-                <Link to='/admin/all-products'><GoDot /> Bütün məhsullar</Link>
+                <Link to='/admin/messages'><GoDot /> Bütün mesajlar</Link>
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>
         <Accordion>
-            <Accordion.Item eventKey="0">
-                <Accordion.Header><PiDotDuotone /> Kateqoriyalar</Accordion.Header>
+            <Accordion.Item eventKey="1">
+                <Accordion.Header><PiDotDuotone /> Kontent</Accordion.Header>
                 <Accordion.Body>
-                <Link to='/admin/category/create'><GoDot /> Yeni kateqoriya</Link>
-                <Link to='/admin/all-categories'><GoDot /> Bütün kateqoriyalar</Link>
-                </Accordion.Body>
-            </Accordion.Item>
-        </Accordion>
-        <Accordion>
-            <Accordion.Item eventKey="0">
-                <Accordion.Header><PiDotDuotone /> Alt Kateqoriyalar</Accordion.Header>
-                <Accordion.Body>
-                <Link to='/admin/category/subcategory/create'><GoDot /> Yeni kateqoriya</Link>
-                <Link to='/admin/all-subcategories'><GoDot /> Bütün kateqoriyalar</Link>
-                </Accordion.Body>
-            </Accordion.Item>
-        </Accordion>
-        <Accordion>
-            <Accordion.Item eventKey="0">
-                <Accordion.Header><PiDotDuotone /> Brendlər</Accordion.Header>
-                <Accordion.Body>
-                <Link to='/admin/brand/create'><GoDot /> Yeni Brend</Link>
-                <Link to='/admin/all-brands'><GoDot /> Bütün brendlər</Link>
-                </Accordion.Body>
-            </Accordion.Item>
-        </Accordion>
-        <Accordion>
-            <Accordion.Item eventKey="0">
-                <Accordion.Header><PiDotDuotone /> Sifarişlər</Accordion.Header>
-                <Accordion.Body>
-                <Link to='/admin/all-orders'><GoDot />Bütün sifarişlər</Link>
+                <Link to='/admin/settings'><GoDot /> Bütün kontent</Link>
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>

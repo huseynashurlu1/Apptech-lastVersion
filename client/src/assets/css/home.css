@@ -1,114 +1,192 @@
-.slider {
-    height: 350px;
-}
-.slider .swiper-slide, .swiper  {
-    height: 100%;
-} 
+#Banner {
+    margin: 3rem 0;
+  }
+  #Banner .bnc-top h1 {
+    font-family: NeueBold;
+    font-size: 60px;
+    line-height: 72px;
+  }
+  #Banner .bnc-mid p {
+    font-family: TTRegular;
+    color: #686868;
+    font-size: 16px;
+    margin: 32px 0;
+  }
+  #Banner .bnc-bottom h1 {
+    font-family: NeueBold;
+    font-size: 36px;
+  }
+  #Banner .bnc-bottom h5 {
+    color: #3D3D3D;
+    font-size: 18px;
+    width: 8%;
+    font-family: TTRegular;
+    margin-top: 8px;
+  }
 
-.slider img{
+
+
+  #About img {
     width: 100%;
-    height: 100%;
-}
-.most-viewed{
-    padding: 3rem 0;
-}
-
-.most-viewed .top{
-    border-bottom: 2px solid #f7f7f7;
-    padding-bottom: 10px;
-}
-
-.most-viewed h2{
-    color: rgb(90, 89, 89);
-    font-family: Bold;
-    font-size: 23px;
-}
-
-.item-box{
-    border: 1px solid #efefef;
-}
-
-.item-image{
-    padding: 25px;
-    position: relative;
-}
-
-.item-image span{
-    position: absolute;
-    font-size: 14px;
-    background: orange;
-    color: #fff;
-    padding: 0px 4px;
-    font-family: 'Regular';
-    border-radius: 3px;
-    top: 10px;
-    left: 10px;
-}
+  }
+  #About h1 {
+    font-size: 52px;
+    line-height: 64px;
+    font-family: NeueBold;
+  }
+  #About p {
+    font-family: TTRegular;
+  }
 
 
-.item-content{
-    padding: 20px;
-}
 
-.item-content h5{
-    font-family: Regular;
-    color: #333;
-}
-
-.item-content p{
-    font-family: Bold;
-    margin-top: 10px;
-    color: #333;
-}
-
-.item-content button{
-    width: 100%;
-    height: 35px;
-    background-color: transparent;
-    color: #ffb6b6;
-    border: 1px solid #ffb6b6;
-    margin-top: 14px;
-    font-family: Regular;
-    border-radius: 5px;
-}
-
-.item-image {
-    height: 230px;
-}
-
-.item-image img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-@media (max-width:576px) {
-    .slider {
-        display: none;
-    }
-}
-
-#Banners {
-    padding-bottom: 2rem;
-}
-
-#Banners h2{
-    font-family: Bold;
-    margin-bottom: 15px;
-}
-
-.brand-box {
+  #Services {
+    margin: 4rem 0;
+  }
+  #Services h1 {
+    margin-bottom: 4rem;
     text-align: center;
-    padding: 20px;
-    border-radius: 5px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    font-family: NeueBold;
+    font-size: 42px;
+    display: inline-block;
+    position: relative;
+  }
+  #Services h1::before {
+    content: "";
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    width: 100%;
+    background-color: #C3E754;
+    height: 7px;
+  }
+  #Services .service-box {
+    background-color: #121212;
+    height: 276px;
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+  }
+  #Services .service-box svg {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+  }
+  #Services .service-text h4 {
+    font-family: NeueSemi;
+    font-size: 24px;
+    color: #fff;
+  }
+  #Services .service-text p {
+    font-size: 15px;
+    font-family: TTRegular;
+    color: #fff;
+  }
 
-#Banners .brand-box img{
-    width: 80%;
+
+  #Contact {
+    margin: 5rem 0 7rem;
+  }
+  #Contact .contact-left h1 {
+    font-family: NeueSemiBold;
+    font-size: 52px;
+  }
+  #Contact .contact-left p {
+    font-size: 16px;
+    font-family: TTRegular;
+    color: #686868;
+    margin: 16px 0;
+  }
+  #Contact .contact-left ul li {
+    margin-bottom: 12px;
+  }
+  #Contact .contact-left ul li a {
+    font-size: 16px;
+    font-family: TTRegular;
+    color: #1C1B1B;
+  }
+  #Contact .contact-right {
+    background-color: #F3FADD;
+    padding: 30px;
+  }
+  #Contact .contact-right h3 {
+    font-family: NeueSemiBold;
+    font-size: 20px;
+  }
+  #Contact .contact-right p {
+    font-size: 16px;
+    font-family: TTRegular;
+  }
+  #Contact .contact-right div input {
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 3px;
+    padding-left: 15px;
+    border: 1px solid #1C1B1B;
+    height: 50px;
+  }
+  #Contact .contact-right div input:nth-child(3) {
+    padding: 20px 0 140px 15px;
+  }
+  #Contact .contact-right div button {
+    background-color: #121212;
+    color: #fff;
+    border-radius: 3px;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    z-index: 1;
+    transition: 0.5s;
+  }
+  #Contact .contact-right div button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 0;
     height: 100%;
-    object-fit: contain;
-}
+    background-color: #fff;
+    transition: 0.5s;
+  }
+  #Contact .contact-right div button:hover {
+    color: black;
+  }
+  #Contact .contact-right div button:hover::before {
+    width: 100%;
+  }
+
+  .banner-img {
+    text-align: right;
+  }
+
+  header nav svg{
+    display: none;
+  }
+
+
+  @media screen and (max-width:576px) {
+      header nav a {
+        display: none;
+      }
+      header nav svg {
+        display: inline-block !important;
+        cursor: pointer;
+      }
+
+      #Banner{
+        margin-top: 0 !important;
+      }
+
+      .banner-img {
+        text-align: center !important;
+      }
+
+      .banner-img svg{
+        width: 380px !important;
+      }
+
+      .social {
+        margin-top: 25px !important;
+      }
+  }
