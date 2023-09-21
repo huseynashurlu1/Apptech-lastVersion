@@ -27,7 +27,7 @@ const Layout = (props) => {
   }
   useEffect(() => {
     const getMessages = async () => {
-        await axios.get('http://localhost:5000/api/settings/all')
+        await axios.get('http://167.172.105.171:5000/api/settings/all')
         .then(res =>{
             setData(res.data[0])
         })
