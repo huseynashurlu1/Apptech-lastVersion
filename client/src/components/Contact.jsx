@@ -42,7 +42,7 @@ const Contact = (props) => {
             return;
         }
         try {
-            await axios.post('http://localhost:5000/api/contact/add', msg)
+            await axios.post('http://167.172.105.171:5000/api/contact/add', msg)
             toast.success('Mesaj göndərildi', {
                 position: "bottom-right",
                 autoClose: 2000,
