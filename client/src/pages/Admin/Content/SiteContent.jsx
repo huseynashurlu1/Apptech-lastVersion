@@ -6,7 +6,7 @@ const SiteContent = () => {
 
     useEffect(() => {
             const getContent = async () => {
-                await axios.get('http://localhost:5000/api/settings/all')
+                await axios.get('http://167.172.105.171:5000/api/settings/all')
                 .then(res => {
                     setData(res.data[0])
                 })
@@ -19,7 +19,7 @@ const SiteContent = () => {
     const updateSettings = async () => {
         console.log(data);
         try {
-            await axios.put('http://localhost:5000/api/settings/:id', data);
+            await axios.put('http://167.172.105.171:5000/api/settings/:id', data);
         } catch (error) {
             console.error('Səhv baş verdi:', error);
         }
